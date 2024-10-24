@@ -1,0 +1,1 @@
+get 'reports', to: 'reports_list#index'

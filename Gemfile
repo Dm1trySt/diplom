@@ -16,6 +16,7 @@ gem 'rbpdf', '~> 1.21.3'
 gem 'addressable'
 gem 'rubyzip', '~> 2.3.0'
 gem 'webrick'
+gem 'whenever', require: false
 
 #  Ruby Standard Gems
 gem 'csv', '~> 3.2.6'
