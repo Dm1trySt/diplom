@@ -15,5 +15,7 @@ Database adapter: Mysql2
 
 `rake db:migrate`
 
+`rake rails:plugins:migrate`
+
 ## Возможные ошибки:
 mysql2 - ошибка решается запуском `sudo apt install libmariadb-dev`
