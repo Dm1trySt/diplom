@@ -1,3 +1,8 @@
+## Delayed Job
+
+[delayed_job](https://github.com/collectiveidea/delayed_job)
+
+запуск - `./plugins/instruments/script/delayed_job start`
 ## Crontab
 
 [Whenever](https://github.com/javan/whenever) - gem, который позволяет писать задания для cron, используя красивый DSL.

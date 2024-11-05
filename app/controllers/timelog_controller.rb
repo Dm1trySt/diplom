@@ -297,7 +297,7 @@ class TimelogController < ApplicationController
     end
   end
 
-  # Returns the TimeEntry scope for index and report actions
+  # Returns the TimeEntry scope for index and reports actions
   def time_entry_scope(options={})
     @query.results_scope(options)
   end

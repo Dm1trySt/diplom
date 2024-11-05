@@ -1,0 +1,154 @@
+.tool-bar{
+  padding: 10px;
+  border: 1px solid #EEEEEE;
+}
+
+.tool-bar .loader {
+  width: 24px;
+  height: 24px;
+  background: url('../../images/loading.gif') no-repeat scroll 0 0 / 24px 24px transparent;
+  display: inline-block;
+  margin: 0 0 0 5px;
+  position: absolute;
+}
+
+table{
+  margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.report-table thead{
+  font-weight: bold;
+  text-align: center;
+}
+
+table.report-table tr td.premium{
+  text-align: right;
+}
+
+table.report-table tr td{
+  vertical-align: top;
+  padding: 5px;
+  border: 1px solid #EEEEEE;
+}
+
+table.report-table tr.group td{
+  background: #EEEEEE;
+  font-weight: bold;
+}
+
+table.report-table tr.group td .name{
+  display: inline-block;
+  padding-top: 7px
+}
+
+table.report-table tr.group td .workers-count{
+  font-weight: normal;
+  display: inline-block;
+  float: right;
+  font-style: italic;
+}
+
+table.report-table tr.group td .workers-count input[type=number]{
+  width: 50px;
+}
+
+table.report-table tr td .group-manager-icon{
+  display: inline-block;
+  float: right;
+}
+
+table.report-table tr td .group-manager-icon:hover{
+  cursor: pointer;
+}
+
+table.report-table tr.totals-group td{
+  font-weight: bold;
+  background: #f9f9f9;
+}
+
+table.report-table tr.totals-department td{
+  background: #7C0A00;
+  color: white;
+  font-weight: bold;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+table.report-table tr td.bounds{
+  width: 200px;
+}
+
+table.report-table tr td.bounds .values{
+  display: inline-block;
+}
+
+table.report-table tr td.bounds .values input[type=number]{
+  width: 70px;
+}
+
+table.report-table tr td.bounds .values input[type=number].error{
+  color: #7C0A00;
+}
+
+table.report-table tr td.bounds .actions{
+  padding-top: 2px;
+  display: inline-block;
+  float: right;
+}
+
+table.report-table tr td.bounds .actions .ui-icon{
+  border: 1px solid #EEEEEE;
+}
+
+table.report-table tr td.bounds .errors{
+  padding-top: 2px;
+  color: #7C0A00;
+  font-style: italic;
+}
+
+table.report-table tr td.bounds .errors ul{
+  list-style: none;
+  padding-left: 5px;
+  margin: 0;
+}
+
+table.report-table tr td.bounds .errors ul li:before{
+  content: '- ';
+}
+
+table.report-table tr td.bounds .errors ul li{
+  padding-bottom: 3px;
+}
+
+table.report-table tr td.bounds .actions .loader{
+  padding: 0;
+  width: 12px;
+  height: 12px;
+  background: url('/../../images/loading.gif') no-repeat scroll 0 0 / 14px 14px transparent;
+  display: inline-block;
+}
+
+table.report-table tr td ul.issues-list{
+  max-height: 150px;
+  overflow-y: auto;
+  padding: 5px 0 5px 0;
+  list-style: none;
+}
+
+table.report-table tr td ul.issues-list li{
+  border-bottom: 1px solid #eeeeee;
+}
+
+table.report-table tr td ul.issues-list li a{
+  font-weight: normal!important;
+  color: #303030!important;
+}
+
+table.report-table tr td ul.issues-list li .scores{
+  display: inline-block;
+  float: right;
+  font-weight: bold;
+  padding-right: 5px;
+}

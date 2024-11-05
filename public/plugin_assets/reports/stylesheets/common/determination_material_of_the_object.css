@@ -1,0 +1,48 @@
+.tool-bar { margin-bottom: 10px; }
+
+.list {
+  max-height: 600px;
+  background-color: white;
+  width: 100%!important;
+}
+
+.list .clickable { cursor: pointer; }
+
+.list .worker { font-weight: bold; }
+
+.list .user-types { border-bottom: 1px solid #a8a8a8; }
+.list .user-type {
+  border-left: 1px solid #a8a8a8;
+  border-right: 1px solid #a8a8a8;
+}
+
+.list .total-time {
+  font-weight: bold;
+}
+
+.list td {
+  border: 1px dotted #e4e4e4;
+}
+
+.tabs ul li span {
+  display: block;
+  font-size: 0.9em;
+  text-decoration: none;
+  line-height: 1.3em;
+  padding: 4px 6px 4px 6px;
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #bbbbbb;
+  background-color: #f6f6f6;
+  color: #999;
+  font-weight: bold;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  cursor: pointer;
+}
+
+.tabs ul li span.selected {
+  background-color: #fff;
+  border: 1px solid #bbbbbb;
+  border-bottom: 1px solid #fff;
+  color: #444;
+}

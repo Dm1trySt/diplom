@@ -48,11 +48,11 @@ class RoutingTimelogsTest < Redmine::RoutingTest
   end
 
   def test_timelogs_report
-    should_route 'GET /time_entries/report' => 'timelog#report'
-    should_route 'GET /time_entries/report.csv' => 'timelog#report', :format => 'csv'
+    should_route 'GET /time_entries/reports' => 'timelog#reports'
+    should_route 'GET /time_entries/reports.csv' => 'timelog#reports', :format => 'csv'
 
-    should_route 'GET /projects/foo/time_entries/report' => 'timelog#report', :project_id => 'foo'
-    should_route 'GET /projects/foo/time_entries/report.csv' => 'timelog#report', :project_id => 'foo', :format => 'csv'
+    should_route 'GET /projects/foo/time_entries/reports' => 'timelog#reports', :project_id => 'foo'
+    should_route 'GET /projects/foo/time_entries/reports.csv' => 'timelog#reports', :project_id => 'foo', :format => 'csv'
   end
 
   def test_timelogs_bulk_edit

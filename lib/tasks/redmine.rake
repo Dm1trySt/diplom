@@ -73,7 +73,7 @@ namespace :redmine do
     Rake::Task["redmine:plugins:migrate"].invoke
     Rake::Task["redmine:plugins:assets"].invoke
   end
-
+  #uninitialized constant Redmine::WikiFormatting::LinksHelper
 desc <<-DESC
 FOR EXPERIMENTAL USE ONLY, Moves Redmine data from production database to the development database.
 This task should only be used when you need to move data from one DBMS to a different one (eg. MySQL to PostgreSQL).

@@ -1323,7 +1323,7 @@ ta-IN:
   error_attachment_not_found: Attachment %{name} not found
   error_invalid_authenticity_token: Invalid form authenticity token.
   error_query_statement_invalid: An error occurred while executing the query and has
-    been logged. Please report this error to your Redmine administrator.
+    been logged. Please reports this error to your Redmine administrator.
   mail_destroy_project_failed: Project %{value} could not be deleted.
   mail_destroy_project_successful: Project %{value} was deleted successfully.
   mail_destroy_project_with_subprojects_successful: Project %{value} and its subprojects

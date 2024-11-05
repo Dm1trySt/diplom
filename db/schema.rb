@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_12_112407) do
+ActiveRecord::Schema.define(version: 2024_10_28_180345) do
 
   create_table "attachments", id: :integer, charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.integer "container_id"
@@ -170,6 +170,44 @@ ActiveRecord::Schema.define(version: 2023_10_12_112407) do
     t.text "value", size: :long
     t.index ["custom_field_id"], name: "index_custom_values_on_custom_field_id"
     t.index ["customized_type", "customized_id", "custom_field_id"], name: "custom_values_customized_custom_field"
+  end
+
+  create_table "delayed_jobs", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "determination_object_material_details", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
+    t.integer "determination_object_material_id", null: false
+    t.string "object_name", null: false
+    t.string "address", null: false
+    t.integer "day", null: false
+    t.integer "month", null: false
+    t.integer "year", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["object_name"], name: "index_determination_object_material_details_on_object_name"
+  end
+
+  create_table "determination_object_materials", charset: "utf8mb3", collation: "utf8mb3_general_ci", force: :cascade do |t|
+    t.string "object_type", null: false
+    t.integer "count", default: 1, null: false
+    t.integer "month", null: false
+    t.integer "year", null: false
+    t.date "date", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["object_type"], name: "index_determination_object_materials_on_object_type"
   end
 
   create_table "documents", id: :integer, charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|

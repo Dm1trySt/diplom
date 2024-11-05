@@ -60,7 +60,7 @@ class ReportsControllerTest < Redmine::ControllerTest
         assert_select ':nth-child(3)', :text => '3' # closed
         assert_select ':nth-child(4)', :text => '8' # total
       end
-      assert_select 'table.issue-report td.name', :text => 'Support request', :count => 1
+      assert_select 'table.issue-reports td.name', :text => 'Support request', :count => 1
     end
   end
 
@@ -84,7 +84,7 @@ class ReportsControllerTest < Redmine::ControllerTest
         assert_select ':nth-child(3)', :text => '3' # closed
         assert_select ':nth-child(4)', :text => '6' # total
       end
-      assert_select 'table.issue-report td.name', :text => 'Support request', :count => 0
+      assert_select 'table.issue-reports td.name', :text => 'Support request', :count => 0
     end
   end
 
@@ -153,7 +153,7 @@ class ReportsControllerTest < Redmine::ControllerTest
         assert_select ':nth-child(9)', :text => '3' # closed
         assert_select ':nth-child(10)', :text => '8' # total
       end
-      assert_select 'table.issue-report-detailed td.name', :text => 'Support request', :count => 1
+      assert_select 'table.issue-reports-detailed td.name', :text => 'Support request', :count => 1
     end
   end
 
@@ -182,7 +182,7 @@ class ReportsControllerTest < Redmine::ControllerTest
         assert_select ':nth-child(9)', :text => '3' # closed
         assert_select ':nth-child(10)', :text => '6' # total
       end
-      assert_select 'table.issue-report td.name', :text => 'Support request', :count => 0
+      assert_select 'table.issue-reports td.name', :text => 'Support request', :count => 0
     end
   end
 

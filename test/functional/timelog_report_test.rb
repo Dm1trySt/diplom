@@ -50,13 +50,13 @@ class TimelogReportTest < Redmine::ControllerTest
       end
     end
 
-    assert_select 'form#query_form[action=?]', '/projects/ecookbook/time_entries/report'
+    assert_select 'form#query_form[action=?]', '/projects/ecookbook/time_entries/reports'
   end
 
   def test_report_all_projects
     get :report
     assert_response :success
-    assert_select 'form#query_form[action=?]', '/time_entries/report'
+    assert_select 'form#query_form[action=?]', '/time_entries/reports'
   end
 
   def test_report_all_projects_denied
@@ -164,14 +164,14 @@ class TimelogReportTest < Redmine::ControllerTest
     get :report, :params => {:columns => 'week', :from => "2009-12-25", :to => "2010-01-05", :criteria => ["project"]}
     assert_response :success
 
-    assert_select '#time-report thead tr' do
+    assert_select '#time-reports thead tr' do
       assert_select 'th:nth-child(1)', :text => 'Project'
       assert_select 'th:nth-child(2)', :text => '2009-52'
       assert_select 'th:nth-child(3)', :text => '2009-53'
       assert_select 'th:nth-child(4)', :text => '2010-1'
       assert_select 'th:nth-child(5)', :text => 'Total time'
     end
-    assert_select '#time-report tbody tr' do
+    assert_select '#time-reports tbody tr' do
       assert_select 'td:nth-child(1)', :text => 'eCookbook'
       assert_select 'td:nth-child(2)', :text => '2:00'
       assert_select 'td:nth-child(3)', :text => '12:00'

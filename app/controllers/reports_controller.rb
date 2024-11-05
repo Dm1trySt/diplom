@@ -88,7 +88,7 @@ class ReportsController < ApplicationController
       format.csv do
         send_data(issue_report_details_to_csv(@field, @statuses, @rows, @data),
                   :type => 'text/csv; header=present',
-                  :filename => "report-#{params[:detail]}.csv")
+                  :filename => "reports-#{params[:detail]}.csv")
       end
     end
   end

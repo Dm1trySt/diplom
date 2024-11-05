@@ -1,0 +1,41 @@
+<table class="list">
+  <thead>
+  <tr>
+    <th>Тип</th>
+    <th>Количество</th>
+    <th>Детализация</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @data.each do |object|%>
+    <tr>
+      <td><%= object[:type] %></td>
+      <td><%= object[:count] %></td>
+      <td>
+        <table class="list2">
+          <thead>
+          <tr>
+            <th>Объект</th>
+            <th>Адрес урны</th>
+            <th>Дата фото</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% object[:details].each do |details|%>
+            <tr>
+              <td> <%=details[:object]%></td>
+              <td>  <%=details[:address]%></td>
+              <td> <%=details[:data]%></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+
+

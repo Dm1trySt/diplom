@@ -21,7 +21,7 @@ require_relative '../../test_helper'
 
 class RoutingReportsTest < Redmine::RoutingTest
   def test_reports
-    should_route 'GET /projects/foo/issues/report' => 'reports#issue_report', :id => 'foo'
-    should_route 'GET /projects/foo/issues/report/assigned_to' => 'reports#issue_report_details', :id => 'foo', :detail => 'assigned_to'
+    should_route 'GET /projects/foo/issues/reports' => 'reports#issue_report', :id => 'foo'
+    should_route 'GET /projects/foo/issues/reports/assigned_to' => 'reports#issue_report_details', :id => 'foo', :detail => 'assigned_to'
   end
 end
