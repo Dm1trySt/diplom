@@ -17,6 +17,17 @@ gem 'addressable'
 gem 'rubyzip', '~> 2.3.0'
 gem 'webrick'
 gem 'whenever', require: false
+gem 'caxlsx', '~> 3.1'
+gem 'caxlsx_rails', '~> 0.6'
+gem 'daemons'
+gem 'httparty'
+gem 'rspec-rails'
+
+group :delayed do
+  gem 'delayed_job_active_record'
+  gem 'delayed_job_web'
+  gem 'delayed_cron_job'
+end
 
 #  Ruby Standard Gems
 gem 'csv', '~> 3.2.6'

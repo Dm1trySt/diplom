@@ -30,8 +30,8 @@ class RoutesHelperTest < Redmine::HelperTest
   end
 
   def test_report_time_entries_path
-    assert_equal '/projects/ecookbook/time_entries/report', _report_time_entries_path(Project.find(1), nil)
-    assert_equal '/time_entries/report', _report_time_entries_path(nil, nil)
+    assert_equal '/projects/ecookbook/time_entries/reports', _report_time_entries_path(Project.find(1), nil)
+    assert_equal '/time_entries/reports', _report_time_entries_path(nil, nil)
   end
 
   def test_new_time_entry_path

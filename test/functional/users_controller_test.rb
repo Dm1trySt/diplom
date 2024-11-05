@@ -391,7 +391,7 @@ class UsersControllerTest < Redmine::ControllerTest
   def test_show_issues_counts
     @request.session[:user_id] = 2
     get :show, :params => {:id => 2}
-    assert_select 'table.list.issue-report>tbody' do
+    assert_select 'table.list.issue-reports>tbody' do
       assert_select 'tr:nth-of-type(1)' do
         assert_select 'td:nth-of-type(1)>a', :text => 'Assigned issues'
         assert_select 'td:nth-of-type(2)>a', :text => '1'   # open

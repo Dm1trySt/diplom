@@ -1,5 +1,7 @@
 /* Redmine - project management software
    Copyright (C) 2006-2023  Jean-Philippe Lang */
+//= require angular
+//= require angular/app_name
 
 function sanitizeHTML(string) {
   var temp = document.createElement('span');

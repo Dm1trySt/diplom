@@ -1,0 +1,94 @@
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag 'common/determination_object_material', :plugin => 'reports' %>
+  <%= angular_include_tag '1.6.5' %>
+  <%= javascript_include_tag 'services/date_helper.js', :plugin => 'reports' %>
+  <%= javascript_include_tag 'services/loader.js', :plugin => 'reports' %>
+  <%= javascript_include_tag 'directives/links.js', :plugin => 'reports' %>
+  <%= javascript_include_tag 'directives/rowspan.js', :plugin => 'reports' %>
+  <%= javascript_include_tag 'common/determination_object_material.js', :plugin => 'reports' %>
+<% end %>
+
+<% html_title @title %>
+
+<h2><%=@title%></h2>
+
+<script>
+    var availablePeriods = <%= Reports::Common::DeterminationObjectMaterial::Report.available_periods.to_json.html_safe %>;
+</script>
+
+<div ng-app="DeterminationObjectMaterialReport">
+  <div ng-controller="DeterminationObjectMaterialReportController as report" ng-init="report.init()">
+    <div class="tool-bar" ng-cloak>
+      <select ng-model="report.month"
+              ng-options="month as month_name for (month, month_name) in report.availablePeriods[report.year]">
+      </select>
+
+      <select ng-model="report.year"
+              ng-change="report.setDefaultMonth()"
+              ng-options="year as year for (year, months) in report.availablePeriods">
+      </select>
+
+      <input type="button" value="Показать"
+             ng-click="report.getData()"
+             ng-disabled="report.loading" />
+
+
+      <input type="button" value="Выгрузить в Excel"
+             ng-click="report.getXlsData()"
+             ng-disabled="report.loading" />
+
+      <div class="loader" ng-show="report.loading"></div>
+    </div>
+
+    <table class="report-table" ng-if="report.data" ng-cloak
+           ng-init="report.total_count = 0">
+
+      <thead>
+      <tr>
+        <td>Тип мусора</td>
+        <td>Текущее количество</td>
+        <td>Месяц</td>
+        <td>Год</td>
+      </tr>
+      </thead>
+
+      <tbody ng-repeat="object in report.data">
+
+      <tr class="group">
+        <td colspan="5">
+          <div class="name"></div>
+        </td>
+      </tr>
+        <!-- Оптимизатор -->
+        <td>
+          {{object.type}}
+        </td>
+        <!-- Текущее количество баллов -->
+      <td ng-init="report.total_count = report.total_count + object.count">
+        <a title="Показать задачи" ng-bind="object.count" ng-click="object.show_details = !object.show_details"></a>
+        <ul class="issues-list" ng-show="object.show_details">
+          <li ng-repeat="object in object.details" object-name><div class="scores">{{object.data || 0}}</div></li>
+        </ul>
+      </td>
+
+        <!-- Количество баллов в созданных задачах-->
+      <td>
+        {{object.month}}
+      </td>
+
+        <!-- Премия -->
+      <td>
+        {{object.year}}
+      </td>
+      </tbody>
+
+      <tfoot ng-cloak>
+      <tr class="totals-department">
+        <td> Итого за месяц: </td>
+        <!-- Текущее количество баллов -->
+        <td ng-bind="report.total_count"></td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

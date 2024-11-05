@@ -32,6 +32,8 @@ module RedmineApp
 
     config.active_record.store_full_sti_class = true
     config.active_record.default_timezone = :local
+
+
     config.active_record.yaml_column_permitted_classes = [
       Date,
       Time,
@@ -44,7 +46,7 @@ module RedmineApp
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'Europe/Moscow'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
@@ -73,6 +75,8 @@ module RedmineApp
 
     # Verify validity of user sessions
     config.redmine_verify_sessions = true
+
+    config.active_job.queue_adapter = :delayed_job
 
     # Specific cache for search results, the default file store cache is not
     # a good option as it could grow fast. A memory store (32MB max) is used

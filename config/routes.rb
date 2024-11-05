@@ -67,8 +67,8 @@ Rails.application.routes.draw do
   get '/projects/:project_id/issues/calendar', :to => 'calendars#show', :as => 'project_calendar'
   get '/issues/calendar', :to => 'calendars#show'
 
-  get 'projects/:id/issues/report', :to => 'reports#issue_report', :as => 'project_issues_report'
-  get 'projects/:id/issues/report/:detail', :to => 'reports#issue_report_details', :as => 'project_issues_report_details'
+  get 'projects/:id/issues/reports', :to => 'reports#issue_report', :as => 'project_issues_report'
+  get 'projects/:id/issues/reports/:detail', :to => 'reports#issue_report_details', :as => 'project_issues_report_details'
 
   get   '/issues/imports/new', :to => 'imports#new',
         :defaults => {:type => 'IssueImport'}, :as => 'new_issues_import'
@@ -173,7 +173,7 @@ Rails.application.routes.draw do
 
     resources :news, :except => [:show, :edit, :update, :destroy]
     resources :time_entries, :controller => 'timelog', :except => [:show, :edit, :update, :destroy] do
-      get 'report', :on => :collection
+      get 'reports', :on => :collection
     end
     resources :queries, :only => [:new, :create]
     shallow do
@@ -255,7 +255,7 @@ Rails.application.routes.draw do
       patch 'edit', :to => 'timelog#edit'
     end
     collection do
-      get 'report'
+      get 'reports'
       get 'bulk_edit'
       post 'bulk_update'
     end

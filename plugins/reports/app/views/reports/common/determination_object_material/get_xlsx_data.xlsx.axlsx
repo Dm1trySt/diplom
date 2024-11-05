@@ -1,0 +1,27 @@
+wb = xlsx_package.workbook
+s = wb.styles
+
+highlight_cell = s.add_style(bg_color:"EFC376")
+left_cell = s.add_style(alignment: {horizontal: :left})
+date_cell = s.add_style(format_code: "yyyy-mm-dd")
+
+
+wb.add_worksheet(name: "general_information") do |sheet|
+    sheet.add_row ["Тип мусора", "Текущее количество","Месяц","Год"],
+    style: [highlight_cell, highlight_cell, highlight_cell, highlight_cell]
+    @data.each do |object|
+      sheet.add_row [object[:type], object[:count], object[:month], object[:year]],
+      style: [left_cell, left_cell, left_cell, left_cell]
+    end
+end
+
+wb.add_worksheet(name: "details") do |sheet|
+    sheet.add_row ["Имя объекта", "Тип мусора", "Адрес урны","Дата определения объекта"],
+    style: [highlight_cell, highlight_cell, highlight_cell, highlight_cell]
+    @data.each do |object|
+        object[:details].each do |detail|
+              sheet.add_row [detail[:object], detail[:object_type], detail[:address], detail[:data]],
+              style: [left_cell, left_cell, left_cell, date_cell]
+        end
+    end
+end

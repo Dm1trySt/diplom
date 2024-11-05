@@ -17,8 +17,11 @@ default:
     delivery_method: :smtp
     smtp_settings:
       address: "localhost"
+      port: 1025
+    smtp_reports_settings:
       user_name: "some_mail@gmail.com"
       password: "some password"
+      address: "localhost"
       port: 1025
 
   # ==== Simple SMTP server at localhost
@@ -244,3 +247,8 @@ development:
 test:
   email_delivery:
     delivery_method: :test
+
+
+blip_image_captioning_large:
+  url: 'https://api-inference.huggingface.co/models/Salesforce/blip-image-captioning-large'
+  api_token: 'Bearer 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'

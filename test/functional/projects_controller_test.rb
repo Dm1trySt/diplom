@@ -859,7 +859,7 @@ class ProjectsControllerTest < Redmine::ControllerTest
     get(:show, :params => {:id => 'onlinestore'})
     assert_response :success
     # Make sure there's a > 0 issue count
-    assert_select 'table.issue-report td.total a', :text => %r{\A[1-9]\d*\z}
+    assert_select 'table.issue-reports td.total a', :text => %r{\A[1-9]\d*\z}
   end
 
   def test_show_should_not_display_subprojects_trackers_when_subprojects_issues_is_not_displayed
@@ -871,13 +871,13 @@ class ProjectsControllerTest < Redmine::ControllerTest
     with_settings :display_subprojects_issues => '1' do
       get(:show, :params => {:id => 'ecookbook'})
       assert_response :success
-      assert_select 'table.issue-report td.name', :text => 'Support request', :count => 1
+      assert_select 'table.issue-reports td.name', :text => 'Support request', :count => 1
     end
 
     with_settings :display_subprojects_issues => '0' do
       get(:show, :params => {:id => 'ecookbook'})
       assert_response :success
-      assert_select 'table.issue-report td.name', :text => 'Support request', :count => 0
+      assert_select 'table.issue-reports td.name', :text => 'Support request', :count => 0
     end
   end
 
